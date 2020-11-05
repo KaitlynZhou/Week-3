@@ -1,0 +1,39 @@
+# Write a function named collatz() that has one parameter named number. If number is even, then collatz() should print number//2
+# return this value. If number is odd, then collatz() should print and return 3*number+1.
+# Then write a program that lets the user type in an integer and that keeps calling collatz() on that number until the funtion
+# returns the value 1. Remember to convert the return value from input() to an integer with the int() function; otherwise
+# it will be a string value.
+
+def EvenOrOdd(n):
+    return n%2 == 0
+
+def EvenCollatz(num):
+    return(int(num//2))
+
+def OddCollatz(num):
+    return(int(num*3)+1)
+
+def collatz(number):
+    if EvenOrOdd(number)==True:
+        number = EvenCollatz(number)
+
+    else:
+        number = OddCollatz(number)
+
+    return(number)
+
+def finalcollatz(numb):
+    if numb == 1:
+        print("Your number is already one.")
+        exit()
+
+    while numb != 1:
+        numb = collatz(numb)
+        print(numb)
+
+    return numb
+
+print("Enter a number")
+a=int(input())
+
+finalcollatz(a)
